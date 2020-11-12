@@ -23,7 +23,6 @@ class CreateRoomScreenPage extends StatefulWidget {
 }
 
 class _CreateRoomState extends State<CreateRoomScreenPage> {
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -41,9 +40,18 @@ class _CreateRoomState extends State<CreateRoomScreenPage> {
               padding: EdgeInsets.symmetric(horizontal: 10.0),
               child: Row(
                 children: [
-                  _AvatarImage(profileAvatarImage: "https://i.insider.com/57bf2f13956abc1d008b45f9?width=957&format=jpeg",),
-                  _AvatarImage(profileAvatarImage: "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/0/0a/Nick_Fury_Textless_AoU_Poster.jpg/revision/latest/top-crop/width/360/height/360?cb=20161119163035",),
-                  _AvatarImage(profileAvatarImage: "https://cnet4.cbsistatic.com/img/hajPWxWk1aqwW7RiIRRZlIYsHBg=/940x0/2019/05/06/b8c3ae69-a9e4-4542-bc28-7a88e890b7cd/spider-man-far-from-home-sony.png",),
+                  _AvatarImage(
+                    profileAvatarImage:
+                        "https://i.insider.com/57bf2f13956abc1d008b45f9?width=957&format=jpeg",
+                  ),
+                  _AvatarImage(
+                    profileAvatarImage:
+                        "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/0/0a/Nick_Fury_Textless_AoU_Poster.jpg/revision/latest/top-crop/width/360/height/360?cb=20161119163035",
+                  ),
+                  _AvatarImage(
+                    profileAvatarImage:
+                        "https://cnet4.cbsistatic.com/img/hajPWxWk1aqwW7RiIRRZlIYsHBg=/940x0/2019/05/06/b8c3ae69-a9e4-4542-bc28-7a88e890b7cd/spider-man-far-from-home-sony.png",
+                  ),
                 ],
               ),
             )
@@ -53,7 +61,6 @@ class _CreateRoomState extends State<CreateRoomScreenPage> {
     );
   }
 }
-
 
 class _GradientButtonRoom extends StatelessWidget {
   _GradientButtonRoom({this.child});
@@ -76,8 +83,7 @@ class _GradientButtonRoom extends StatelessWidget {
   }
 }
 
-class _AvatarImage extends StatelessWidget{
-
+class _AvatarImage extends StatelessWidget {
   final String profileAvatarImage;
 
   const _AvatarImage({
@@ -85,42 +91,38 @@ class _AvatarImage extends StatelessWidget{
     @required this.profileAvatarImage,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
-      return Padding(
-        padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
-        child: Stack(
-            children: [
-              CircleAvatar(
-                radius: 20.0,
-                backgroundColor: Colors.grey[200],
-                backgroundImage: NetworkImage(profileAvatarImage!=""?profileAvatarImage:"https://qph.fs.quoracdn.net/main-qimg-11ef692748351829b4629683eff21100.webp"),
-              ),
-              Positioned(
-                bottom: 0.0,
-                right: 0.0,
-                child: Container(
-                  height: 15.0,
-                  width: 15.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF50b525),
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      width: 2.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              )
-            ]
+    return Padding(
+      padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+      child: Stack(children: [
+        CircleAvatar(
+          radius: 20.0,
+          backgroundColor: Colors.grey[200],
+          backgroundImage: NetworkImage(profileAvatarImage != ""
+              ? profileAvatarImage
+              : "https://qph.fs.quoracdn.net/main-qimg-11ef692748351829b4629683eff21100.webp"),
         ),
-      );
+        Positioned(
+          bottom: 0.0,
+          right: 0.0,
+          child: Container(
+            height: 15.0,
+            width: 15.0,
+            decoration: BoxDecoration(
+              color: Color(0xFF50b525),
+              shape: BoxShape.circle,
+              border: Border.all(
+                width: 2.0,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        )
+      ]),
+    );
   }
-
 }
-
-
 
 class _CreateRoomButton extends StatelessWidget {
   @override
